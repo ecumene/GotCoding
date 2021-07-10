@@ -1,0 +1,20 @@
+{
+  "name": "bolt-js-getting-started-app",
+  "version": "1.0.0",
+  "description": "Getting Started ⚡️ Bolt for JavaScript",
+  "main": "app.js",
+  "scripts": {
+    "ngrok": "ngrok http 3000",
+    "start": "npx serverless offline --printOutput --noPrependStageInUrl",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@slack/bolt": "^3.4.0",
+    "dotenv": "^10.0.0",
+    "google-spreadsheet": "^3.1.15"
+  },
+  "devDependencies": {
+    "serverless-offline": "^7.0.0"
+  }
+}
