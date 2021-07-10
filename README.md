@@ -30,7 +30,7 @@ npm install
 
 ### 3. Start servers
 
-[Setup ngrok][3] to create a local requests URL for development.
+[Setup ngrok](https://ngrok.com/) to create a local requests URL for development.
 
 ```zsh
 npm run ngrok
