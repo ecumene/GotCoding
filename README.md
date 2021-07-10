@@ -38,4 +38,5 @@ npm run start
 ```
 
 [Follow this tutorial for deploying on AWS](https://slack.dev/bolt-js/deployments/aws-lambda)
+
 [Follow this tutorial for setting up a Google Sheet](https://developers.google.com/sheets/api/quickstart/nodejs)
