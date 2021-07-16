@@ -30,23 +30,28 @@ app.command("/start", async ({ ack, body, client }) => {
         type: 'plain_text',
         text: 'Record a Session'
       },
+      close: {
+        type: "plain_text",
+        text: "Cancel"
+      },
+      submit: {
+        type: "plain_text",
+        text: "Log Session"
+      },
       blocks: [
         {
           type: "section",
           text: {
-            type: "mrkdwn",
+            type: "plain_text",
             text: "👩‍💻 You are starting a new coding session",
           },
         },
         {
+          type: "input",
           block_id: "section1",
-          type: "section",
-          text: {
-            type: "mrkdwn",
-            text: "How many sessions are left on this module?",
-          },
-          accessory: {
+          element: {
             type: "static_select",
+            action_id: "sessions_left",
             placeholder: {
               type: "plain_text",
               text: "Select...",
@@ -68,31 +73,30 @@ app.command("/start", async ({ ack, body, client }) => {
               },
               value,
             })),
-            action_id: "sessions_left",
+          },
+          label: {
+            type: "plain_text",
+            text: "How many sessions are left on this module?",
           },
         },
         {
+          type: "input",
           block_id: "section2",
-          type: "section",
-          text: {
-            type: "mrkdwn",
-            text: "Who are you coding with today?",
-          },
-          accessory: {
+          element: {
             type: "users_select",
+            action_id: "coding_student",
             placeholder: {
               type: "plain_text",
               text: "Select ...",
               emoji: true,
             },
-            action_id: "coding_student",
+          },
+          label: {
+            type: "plain_text",
+            text: "Who are you coding with today?",
           },
         },
       ],
-      submit: {
-        type: 'plain_text',
-        text: 'Submit'
-      }
     }
   });
 });
@@ -103,7 +107,6 @@ app.action("coding_student", ackStub);
 app.action("sessions_left", ackStub);
 
 app.view("new_session", async ({ ack, client, body, view }) => {
-  // Acknowledge the action
   await ack();
   await doc.loadInfo();
 
